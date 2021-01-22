@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Inchoo zadatak</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <button onclick="displayMenu()" class="cart"></button>
+        </div>
+        <div id="menu" class="row" style="display: none;">
+ 
+            <div class="dropdownMenu">
+                
+                <div class="dropdownMenuHeader">
+                    <h3 id="dropdownMenuHeader">My cart - x products</h3>
+                </div>
+                <div class="upBtn">
+                    <button onclick="carouselUp()">GORE</button>
+                </div>
+                <hr id="firstLine">
+                <div id="carouselProduct1" class="wrapper"> 
+                    <div class="left">
+                    <img src="images/product1.png" alt="Product1">                     
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h4>Set of GT-s Series Cross Drilled</h4>
+                        </div>
+                        <div class="productDescription">
+                            <p>Brand: Brembo</p>
+                            <p>Color: Red</p>
+                        </div>
+                        <div class="productPrice">
+                            <p>1 x $1770.00</p>
+                        </div>
+                    </div>
+                </div>
+                <hr id="secondLine">
+                <div id="carouselProduct2" class="wrapper">
+                    <div class="left">
+                    <img src="images/product2.png" alt="Product2">
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h4>Just Disk GT-S Cross Drilled</h4>
+                        </div>
+                        <div class="productDescription">
+                            <p>Brand: Barbour International</p>
+                            <p>Size: 405mm</p>
+                        </div>
+                        <div class="productPrice">
+                            <p>1 x $950.00</p>
+                        </div>
+                    </div>
+                </div>
+                <hr id="thirdLine">
+                <div id="carouselProduct3" class="wrapper">
+                    <div class="left">
+                    <img src="images/product3.png" alt="Product3">
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h4>GT Slotted 2 Piece Brake Rotors</h4>
+                        </div>
+                        <div class="productDescription">
+                            <p>Brand: Brembo</p>
+                            <p>Color: Yellow</p>
+                        </div>
+                        <div class="productPrice">
+                            <p>1 x $1670.00</p>
+                        </div>
+                    </div>
+                </div>
+                <hr id="fourthLine">
+                <div id="carouselProduct4" class="wrapper">
+                    <div class="left">
+                    <img src="images/product4.png" alt="Product4">
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h4>Just Disk GT-S Cross Drilled</h4>
+                        </div>
+                        <div class="productDescription">
+                            <p>Brand: Barbour International</p>
+                            <p>Size: 405mm</p>
+                        </div>
+                        <div class="productPrice">
+                            <p>1 x $950.00</p>
+                        </div>
+                    </div>
+                </div>
+                <hr id="fifthLine">
+                <div id="carouselProduct5" class="wrapper">
+                    <div class="left">
+                    <img src="images/product1.png" alt="Product5">
+                    </div>
+                    <div class="right">
+                        <div>
+                            <h4>Set of GT-s Series Cross Drilled</h4>
+                        </div>
+                        <div class="productDescription">
+                            <p>Brand: Brembo</p>
+                            <p>Color: Red</p>
+                        </div>
+                        <div class="productPrice">
+                            <p>1 x $1770.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="downBtn">
+                    <button onclick="carouselDown()">DOLJE</button>
+                </div>
+                <div class="dropdownMenuFooter">
+                    <div class="footerBtn">
+                        <button style="width: 33%;">Edit Cart</button>
+                    </div>
+                    <div class="footerBtn">
+                        <button class="checkoutBtn" style="width: 66%;">CHECKOUT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+        function displayMenu() {
+
+            let displayMenu = document.getElementById("menu");
+            if (displayMenu.style.display === "none") {
+
+                displayMenu.style.display = "block";
+            } else {
+
+                displayMenu.style.display = "none";
+            }
+        }        
+        </script>
+        <script>
+            
+            function productsInfo() {
+
+                let carouselProduct1 = document.getElementById("carouselProduct1");
+                let carouselProduct2 = document.getElementById("carouselProduct2");
+                let carouselProduct3 = document.getElementById("carouselProduct3");
+                let carouselProduct4 = document.getElementById("carouselProduct4");
+                let carouselProduct5 = document.getElementById("carouselProduct5");
+
+                let carouselProducts = new Array(carouselProduct1, carouselProduct2, carouselProduct3, carouselProduct4, carouselProduct5);
+                
+                document.getElementById("dropdownMenuHeader").innerHTML = "My Cart " + "(" + carouselProducts.length + " products" + ")";
+            return carouselProducts;
+            }
+
+            function linesInfo () {
+                
+                let firstLine = document.getElementById("firstLine");
+                let sedondLine = document.getElementById("secondLine");
+                let thirdLine = document.getElementById("thirdLine");
+                let fourthLine = document.getElementById("fourthLine");
+                let fifthLine = document.getElementById("fifthLine");
+
+                let lines = new Array(firstLine, sedondLine, thirdLine, fourthLine, fifthLine);
+            return lines;
+            }
+            
+        </script>
+        <script>
+            
+            let products = productsInfo();
+            let lines = linesInfo();
+            let clickCounter = 0;
+            products[3].style.display = "none";
+            lines[3].style.display = "none";
+            products[4].style.display = "none";
+            lines[4].style.display = "none";
+            console.log(clickCounter);
+
+            function carouselDown() {
+
+                clickCounter++; 
+                
+
+                if (clickCounter === 1) {
+                    products[0].style.display = "none";
+                    lines[0].style.display = "none";
+                    products[1].style.display = "block";
+                    lines[1].style.display = "block";
+                    products[2].style.display = "block";
+                    lines[2].style.display = "block";
+                    products[3].style.display = "block";
+                    lines[3].style.display = "block";
+                    products[4].style.display = "none";
+                    lines[4].style.display = "none"; 
+                }
+                if (clickCounter === 2) {
+                    products[0].style.display = "none";
+                    lines[0].style.display = "none";
+                    products[1].style.display = "none";
+                    lines[1].style.display = "none";
+                    products[2].style.display = "block";
+                    lines[2].style.display = "block";
+                    products[3].style.display = "block";
+                    lines[3].style.display = "block";
+                    products[4].style.display = "block";
+                    lines[4].style.display = "block"; 
+                }
+                if (clickCounter > 2) {
+                    products[0].style.display = "block";
+                    lines[0].style.display = "block";
+                    products[1].style.display = "block";
+                    lines[1].style.display = "block";
+                    products[2].style.display = "block";
+                    lines[2].style.display = "block";
+                    products[3].style.display = "none";
+                    lines[3].style.display = "none";
+                    products[4].style.display = "none";
+                    lines[4].style.display = "none";
+                    console.log(clickCounter);
+                    clickCounter = 0; 
+                }
+            }
+
+            function carouselUp() { 
+                clickCounter--;
+
+                if (clickCounter < 0) {
+                    clickCounter = 2;
+                }
+
+                if (clickCounter === 0) {
+                    products[0].style.display = "block";
+                    lines[0].style.display = "block";
+                    products[1].style.display = "block";
+                    lines[1].style.display = "block";
+                    products[2].style.display = "block";
+                    lines[2].style.display = "block";
+                    products[3].style.display = "none";
+                    lines[3].style.display = "none";
+                    products[4].style.display = "none";
+                    lines[4].style.display = "none"; 
+                }
+
+                if (clickCounter === 1) {
+                    products[0].style.display = "none";
+                    lines[0].style.display = "none";
+                    products[1].style.display = "block";
+                    lines[1].style.display = "block";
+                    products[2].style.display = "block";
+                    lines[2].style.display = "block";
+                    products[3].style.display = "block";
+                    lines[3].style.display = "block";
+                    products[4].style.display = "none";
+                    lines[4].style.display = "none";  
+                }
+
+                if (clickCounter === 2) {
+                        products[0].style.display = "none";
+                        lines[0].style.display = "none";
+                        products[1].style.display = "none";
+                        lines[1].style.display = "none";
+                        products[2].style.display = "block";
+                        lines[2].style.display = "block";
+                        products[3].style.display = "block";
+                        lines[3].style.display = "block";
+                        products[4].style.display = "block";
+                        lines[4].style.display = "block";  
+                }
+            }
+        </script> 
+</body>
+</html>
+
