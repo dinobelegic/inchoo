@@ -2,13 +2,14 @@
 <html>
 <head>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Inchoo zadatak</title>
     
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <button onclick="displayMenu()" class="cart"></button>
+            <button onclick="displayMenu()" ><i class="fa fa-shopping-cart"></i></button>
         </div>
         <div id="menu" class="row" style="display: none;">
  
@@ -18,7 +19,7 @@
                     <h3 id="dropdownMenuHeader">My cart - x products</h3>
                 </div>
                 <div class="upBtn">
-                    <button onclick="carouselUp()">GORE</button>
+                    <button onclick="moveUp()"><i class="fa fa-angle-up"></i></button>
                 </div>
                 <hr id="firstLine">
                 <div id="carouselProduct1" class="wrapper"> 
@@ -111,7 +112,7 @@
                     </div>
                 </div>
                 <div class="downBtn">
-                    <button onclick="carouselDown()">DOLJE</button>
+                    <button onclick="moveDown()"><i class="fa fa-angle-down"></i></button>
                 </div>
                 <div class="dropdownMenuFooter">
                     <div class="footerBtn">
@@ -177,7 +178,7 @@
             lines[4].style.display = "none";
             console.log(clickCounter);
 
-            function carouselDown() {
+            function moveDown() {
 
                 clickCounter++; 
                 
@@ -222,7 +223,7 @@
                 }
             }
 
-            function carouselUp() { 
+            function moveUp() { 
                 clickCounter--;
 
                 if (clickCounter < 0) {
